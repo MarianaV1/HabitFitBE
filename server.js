@@ -9,7 +9,11 @@ connectDB();
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+
+app.use(cors({
+    origin: "https://habit-fit-fe.vercel.app/", // URL de tu frontend
+    credentials: true,
+}));
 
 // Rutas
 app.use("/api/usuarios", usuariosRouter);
