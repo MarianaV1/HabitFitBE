@@ -21,6 +21,9 @@ app.use("/api/rutinas", require("./routes/rutinas"));
 app.use("/api/progreso", require("./routes/progreso"));
 
 
+if (process.env.NODE_ENV !== "test") {
+    const PORT = process.env.PORT || 5000;
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+}
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+module.exports = app; // Exporta solo `app` para pruebas

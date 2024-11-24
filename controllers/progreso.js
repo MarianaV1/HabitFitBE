@@ -16,7 +16,7 @@ const registrarProgreso = async (req, res) => {
         const progresoGuardado = await nuevoProgreso.save();
         res.status(201).json(progresoGuardado);
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        res.status(400).json({ error: error.message });
     }
 };
 
